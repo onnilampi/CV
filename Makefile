@@ -1,18 +1,18 @@
+TEX1=cv_fin
+TEX2=cv_en
 
-all: cv_en.tex cv_fin.tex
-	pdflatex cv_en.tex
-	pdflatex cv_en.tex
-	pdflatex cv_fin.tex
-	pdflatex cv_fin.tex
+all:
+	make $(TEX1).pdf
+	make $(TEX2).pdf
+	make clean
 
-en: cv_en.tex
-	pdflatex cv_en.tex
-	pdflatex cv_en.tex
+$(TEX1).pdf: $(TEX1).tex
+	pdflatex $(TEX1).tex
+	pdflatex $(TEX1).tex
 
-fin: cv_fin.tex
-	pdflatex cv_fin.tex
-	pdflatex cv_fin.tex	
-
+$(TEX2).pdf: $(TEX2).tex
+	pdflatex $(TEX2).tex
+	pdflatex $(TEX2).tex
 
 clean:
-	rm -rf *~ *.log *.out *.aux *.fdb_latexmk *.fls *.pdf
+	rm -rf *~ *.log *.out *.aux *.toc *.snm *.nav	
